@@ -1,0 +1,32 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      DATABASE_URL: file:./prisma/dev.db
+      SENTINEL_MODEL_PROVIDER: ${SENTINEL_MODEL_PROVIDER:-google}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      GENKIT_MODEL: ${GENKIT_MODEL:-googleai/gemini-2.5-flash}
+      FEATHERLESS_BASE_URL: ${FEATHERLESS_BASE_URL:-https://api.featherless.ai/v1}
+      FEATHERLESS_API_KEY: ${FEATHERLESS_API_KEY:-}
+      FEATHERLESS_MODEL: ${FEATHERLESS_MODEL:-meta-llama/Meta-Llama-3.1-8B-Instruct}
+      LMSTUDIO_BASE_URL: ${LMSTUDIO_BASE_URL:-http://127.0.0.1:1234/v1}
+      LMSTUDIO_API_KEY: ${LMSTUDIO_API_KEY:-lm-studio}
+      LMSTUDIO_MODEL: ${LMSTUDIO_MODEL:-local-model}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+      SENTINEL_PUBLIC_BASE_URL: ${SENTINEL_PUBLIC_BASE_URL:-http://localhost:8080}
+      POLICY_FILE: ../../packages/policies/default-policy.yaml
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - "5173:5173"
+    depends_on:
+      - api

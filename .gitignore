@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# env and secrets
+.env
+.env.*
+!.env.example
+apps/api/.env
+
+# build artifacts
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# os/editor
+.DS_Store
+.idea/
+.vscode/
+
+# runtime data
+apps/api/prisma/dev.db
+apps/api/prisma/dev.db-journal
+apps/api/prisma/*.db
+apps/api/prisma/*.db-*
+
+# prisma cache artifacts
+node_modules/.prisma/
+
+# misc
+tmp/

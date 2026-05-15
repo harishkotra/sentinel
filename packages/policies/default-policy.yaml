@@ -1,0 +1,29 @@
+rules:
+  - name: demo_warn
+    match:
+      - "sentinel_demo_warn"
+    action: WARN
+  - name: demo_sanitize
+    match:
+      - "sentinel_demo_sanitize"
+    action: SANITIZE
+  - name: demo_human_approval
+    match:
+      - "sentinel_demo_approval"
+    action: REQUIRE_HUMAN_APPROVAL
+  - name: demo_block
+    match:
+      - "sentinel_demo_block"
+    action: BLOCK
+  - name: block_prompt_extraction
+    match:
+      - "show system prompt"
+      - "reveal instructions"
+      - "print internal instructions"
+    action: BLOCK
+  - name: dangerous_shell_hint
+    match:
+      - "execute shell"
+      - "sudo"
+      - "dump memory"
+    action: REQUIRE_HUMAN_APPROVAL

@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model SecurityEvent {
+  id          String   @id
+  timestamp   DateTime
+  sessionId   String
+  actor       String
+  surface     String
+  input       String
+  action      String
+  level       String
+  totalScore  Int
+  reasons     String
+  signals     String
+  toolName    String?
+  toolArgs    String?
+  traceId     String
+}
+
+model AgentTrace {
+  id          String   @id
+  createdAt   DateTime @default(now())
+  sessionId   String
+  flowName    String
+  input       String
+  output      String
+  decision    String
+  timeline    String
+}
