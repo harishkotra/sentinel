@@ -4,6 +4,8 @@ Sentinel is a production-grade AI Agent Jailbreak Firewall for Genkit.
 
 It acts like a WAF for LLM agents by intercepting prompt/model/tool traffic and enforcing security actions before risky input reaches tools, memory, or downstream models.
 
+<img width="1562" height="995" alt="Sentinel" src="https://github.com/user-attachments/assets/c550764d-067e-4cc0-81a7-d09a01fff7fb" />
+
 ## Why Sentinel
 
 Modern agent stacks fail at the same place web apps used to fail before WAFs: they trust input too much.
@@ -251,8 +253,3 @@ npm test
 - Deployment: [`docs/deployment.md`](/Users/shk/experiments/sentinel/docs/deployment.md)
 - Architecture: [`docs/architecture.md`](/Users/shk/experiments/sentinel/docs/architecture.md)
 - Backlog ideas: [`docs/contributor-issues.md`](/Users/shk/experiments/sentinel/docs/contributor-issues.md)
-
-## Built By
-
-Built by [Harish Kotra](https://harishkotra.me)  
-Checkout my other builds: [dailybuild.xyz](https://dailybuild.xyz)
